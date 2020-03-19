@@ -3,3 +3,17 @@
 <h3>Order Details:</h3>
 <p><%= @data["order"]["order_items"] %></p>
 <%= @data %>
+<%= params['simultaneous'] %>
+
+<table>
+  <tr>
+    <th>Contact</th>
+    <th>Delivery</th>
+    <th>Details</th>
+    <th>Production Process</th>
+  </tr>
+    <tr>
+        <%= render partial: "order_table_row", locals: {data: @data} %>
+    </tr>
+</table>
+
