@@ -1,0 +1,7 @@
+<h1>Welcome to the Great Pizza Shop Client!</h1>
+<h3>Please fill all the fields</h3>
+<%= form_tag("/search", method: "post") do %>
+  <%= label_tag(:interval, "Cantidad de veces") %>
+  <%= text_field_tag(:interval) %>
+  <%= submit_tag("Search") %>
+<% end %>
