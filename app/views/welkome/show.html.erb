@@ -15,11 +15,14 @@
 
 <script>
 $(function() {
-  setInterval(refreshPartial, <%= @time %>);
-});
+    var i = <%= @repeat_times - 1 %>;
+  var intervalId = setInterval(function(){
 
-function refreshPartial() {
-  $.ajax({
+      if(i === 0){
+            clearInterval(intervalId);
+        }
+
+      $.ajax({
             url: '/add_row',
             data: {
                 simultaneous: <%= @simultaneous %>,
@@ -28,5 +31,8 @@ function refreshPartial() {
             },
             dataType: 'script'
         });
-}
+        i--;
+  }, <%= @time %>);
+});
+
 </script>
