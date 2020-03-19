@@ -1,4 +1,7 @@
-
+<h1>This are the Order List for the Great Pizza Shop!</h1>
+<h3>Parameters:</h3>
+<p>Time Between calling the API Post in Seconds: <%= @time %></p>
+<p>Times that will repeat the Calling: <%= @repeat_times %></p>
 <table id="table-orders">
     <thead>
         <tr>    
@@ -21,16 +24,10 @@ $(function() {
       if(i === 0){
             clearInterval(intervalId);
         }
-
-      $.ajax({
-            url: '/add_row',
-            data: {
-                simultaneous: <%= @simultaneous %>,
-                time: <%= @time %>,
-                repeat_times: <%= @repeat_times %>
-            },
-            dataType: 'script'
-        });
+            $.ajax({
+                url: '/add_row',
+                dataType: 'script'
+            });
         i--;
   }, <%= @time %>);
 });
