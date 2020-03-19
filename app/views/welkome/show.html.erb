@@ -1,19 +1,28 @@
-<h1>Order <%= @data["order"]["id"] %>.</h1>
-<h2>Customer: <%= @data["order"]["customer_name"] %>.</h2>
-<h3>Order Details:</h3>
-<p><%= @data["order"]["order_items"] %></p>
-<%= @data %>
-<%= params['simultaneous'] %>
 
-<table>
+<table id="table-orders">
   <tr>
     <th>Contact</th>
     <th>Delivery</th>
     <th>Details</th>
     <th>Production Process</th>
   </tr>
-    <tr>
-        <%= render partial: "order_table_row", locals: {data: @data} %>
-    </tr>
+
 </table>
 
+<script>
+$(function() {
+  setInterval(refreshPartial, <%= @time %>);
+});
+
+function refreshPartial() {
+  $.ajax({
+            url: '/add_row',
+            data: {
+                simultaneous: <%= @simultaneous %>,
+                time: <%= @time %>,
+                repeat_times: <%= @repeat_times %>
+            },
+            dataType: 'script'
+        });
+}
+</script>
