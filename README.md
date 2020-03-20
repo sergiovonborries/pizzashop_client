@@ -54,6 +54,7 @@ The second rb file in the lib folder, is the json_consumer file, this Module use
 ## How it works?
 The client is quite simple, it just receive two params, with that it generates an API post to the service, the time between each call is handled by JavaScript, with the param it set a timer to execute ajax call to a action in a controller and make the call to the API service.
 It will repeat this process until the corresponding param ends the iterations.
+In any API call, it will append a TR in the http://localhost:9000/order for the visualization of the Order.
 
 ## Assumptions
 I assume that the corresponding apis have already been consumed to obtain the ids of the ingredients, pizzas, chesee, sauces, other products, and the other information that is available in the apis of the service.
